@@ -1,44 +1,44 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <title>WebSocket 채팅 클라이언트</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>WebSocket 채팅 클라이언트</h1>-->
-<!--<input type="text" id="nameInput" placeholder="이름 입력">-->
-<!--<input type="text" id="messageInput" placeholder="메시지 입력">-->
-<!--<button onclick="sendMessage()">전송</button>-->
-<!--<div id="chatMessages"></div>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket 채팅 클라이언트</title>
+</head>
+<body>
+<h1>WebSocket 채팅 클라이언트</h1>
+<input type="text" id="nameInput" placeholder="이름 입력">
+<input type="text" id="messageInput" placeholder="메시지 입력">
+<button onclick="sendMessage()">전송</button>
+<div id="chatMessages"></div>
 
-<!--<script>-->
-<!--    // WebSocket 서버에 연결-->
-<!--    const socket = new WebSocket("ws://localhost:8080/socket/chat");-->
+<script>
+    // WebSocket 서버에 연결
+    const socket = new WebSocket("ws://3.39.65.10:8080/socket/chat");
 
-<!--    // 서버로부터 메시지 수신 시-->
-<!--    socket.onmessage = function(event) {-->
-<!--        const message = event.data;-->
-<!--        displayMessage(message);-->
-<!--    };-->
+    // 서버로부터 메시지 수신 시
+    socket.onmessage = function(event) {
+        const message = event.data;
+        displayMessage(message);
+    };
 
-<!--    // 메시지를 서버에 전송-->
-<!--    function sendMessage() {-->
-<!--        const nameInput = document.getElementById("nameInput");-->
-<!--        const messageInput = document.getElementById("messageInput");-->
-<!--        const name = nameInput.value;-->
-<!--        const message = messageInput.value;-->
-<!--        socket.send(name + ": " + message);-->
-<!--        messageInput.value = "";-->
-<!--    }-->
+    // 메시지를 서버에 전송
+    function sendMessage() {
+        const nameInput = document.getElementById("nameInput");
+        const messageInput = document.getElementById("messageInput");
+        const name = nameInput.value;
+        const message = messageInput.value;
+        socket.send(name + ": " + message);
+        messageInput.value = "";
+    }
 
-<!--    // 채팅 메시지를 화면에 표시-->
-<!--    function displayMessage(message) {-->
-<!--        const chatMessages = document.getElementById("chatMessages");-->
-<!--        const messageElement = document.createElement("div");-->
-<!--        messageElement.innerText = message;-->
-<!--        chatMessages.appendChild(messageElement);-->
-<!--    }-->
-<!--</script>-->
-<!--</body>-->
-<!--</html>-->
+    // 채팅 메시지를 화면에 표시
+    function displayMessage(message) {
+        const chatMessages = document.getElementById("chatMessages");
+        const messageElement = document.createElement("div");
+        messageElement.innerText = message;
+        chatMessages.appendChild(messageElement);
+    }
+</script>
+</body>
+</html>
