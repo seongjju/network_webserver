@@ -20,6 +20,8 @@ public class CorsConfig {
         config.addAllowedHeader("*");
         source.registerCorsConfiguration("/**",config);
         System.out.println("success");
+        System.out.println("success2");
+
         return new CorsFilter(source);
     }
 }
