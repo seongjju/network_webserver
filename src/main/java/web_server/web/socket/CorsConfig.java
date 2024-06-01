@@ -15,10 +15,10 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config= new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOriginPatterns(Collections.singletonList("*"));
-        config.addAllowedMethod("*");
-        config.addAllowedHeader("*");
-        source.registerCorsConfiguration("/**",config);
+        config.setAllowedOriginPatterns(Collections.singletonList("*")); //모든 도메인 허용
+        config.addAllowedMethod("*"); //모든 메소드 허용
+        config.addAllowedHeader("*"); //모든 헤더 허용
+        source.registerCorsConfiguration("/**",config); //모든 경로에 대해 설정 적용
         System.out.println("success");
         System.out.println("success2");
 
